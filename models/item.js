@@ -5,12 +5,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     description: DataTypes.TEXT,
-    price: DataTypes.DECIMAL(10, 2)
+    price: DataTypes.DECIMAL(10, 2),
+    fileURL: DataTypes.TEXT
   });
 
   Item.associate = function(models) {
     models.Item.belongsTo(models.Seller, {
-      onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }

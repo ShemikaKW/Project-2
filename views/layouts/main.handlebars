@@ -3,13 +3,57 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="/js/index.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
+
+  <title>Second Hand Treasurues</title>
 </head>
 
 <body>
+  {{!-- NavBar --}}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light grey lighten-2 fixed-top" id="nav-bar">
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Browse</a>
+        </li>
+        <li role="separator" class="divider"></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href=:"#">Sign Up <i class="fas fa-dollar-sign fa-large"></i></a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+  
   {{{body}}}
+
+  {{!-- footer --}}
+  <footer class="col-12 page-footer font-medium fixed-bottom red darken-2 text-center text-white-50">
+    <div class="social d-flex justify-content-center">
+      <a href="https://github.com/ShemikaKW/Project-2" class="mx-2">
+        <i class="fab fa-github fa-2x"></i>
+      </a>
+    </div>
+    <div class="container">
+      Fab Four Copyright &copy; 2018
+    </div>
+  </footer>
+  
 </body>
 
 </html>

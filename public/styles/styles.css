@@ -1,3 +1,44 @@
-.list-group-item {
-  line-height: 2.5;
+body {
+  background-image: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-547660.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px; 
+  padding: 10px;
+}
+
+.create-form {
+  padding: 10px;
+  margin: 5px;
+  text-transform: capitalize;
+}
+
+.btn {
+  margin: 15px;
+  background-color: silver;
+  color: black;
+}
+#main-header{
+  text-align: center;
+  height: 100%;
+  color: antiquewhite;
+}
+
+footer, #nav-bar {
+  padding: 15px;
+  opacity: 0.75;
+}
+
+footer{
+  margin-top: 20px;
+}
+#nav-bar{
+  margin-bottom: 20px; 
+}
+
+#main-header{
+  display:block;
+  margin-top:10%;
+  margin-bottom:10%;
 }

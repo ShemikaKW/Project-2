@@ -16,44 +16,11 @@
 </head>
 
 <body>
-  {{!-- NavBar --}}
-  <nav class="navbar navbar-expand-lg navbar-light bg-light grey lighten-2 fixed-top" id="nav-bar">
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Browse</a>
-        </li>
-        <li role="separator" class="divider"></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href=:"#">Sign Up <i class="fas fa-dollar-sign fa-large"></i></a>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </nav>
-  
-  {{{body}}}
+  {{> navigation/navigation }}
 
-  {{!-- footer --}}
-  <footer class="col-12 page-footer font-medium fixed-bottom red darken-2 text-center text-white-50">
-    <div class="social d-flex justify-content-center">
-      <a href="https://github.com/ShemikaKW/Project-2" class="mx-2">
-        <i class="fab fa-github fa-2x"></i>
-      </a>
-    </div>
-    <div class="container">
-      Fab Four Copyright &copy; 2018
-    </div>
-  </footer>
+  {{{body}}}
   
+  {{> navigation/footer }}
 </body>
 
 </html>

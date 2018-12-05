@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "test") {
 db.sequelize.sync(syncOptions).then(function() {
   //if sync drops tables, seed database
   if (syncOptions.force) {
-    db.sequelize.models.Seller.bulkCreate([
+    db.sequelize.models.User.bulkCreate([
       {
         id: 1,
         firstName: "Daffy",
@@ -81,7 +81,7 @@ db.sequelize.sync(syncOptions).then(function() {
         price: 299.99,
         fileURL: "Insert Path Here",
         CategoryId: 1,
-        SellerId: 1
+        UserId: 1
       },
       {
         id: 2,
@@ -90,7 +90,7 @@ db.sequelize.sync(syncOptions).then(function() {
         price: 105,
         fileURL: "Insert Path Here",
         CategoryId: 2,
-        SellerId: 2
+        UserId: 2
       },
       {
         id: 3,
@@ -99,7 +99,7 @@ db.sequelize.sync(syncOptions).then(function() {
         price: 35.25,
         fileURL: "Insert Path Here",
         CategoryId: 2,
-        SellerId: 2
+        UserId: 2
       },
       {
         name: "Lawn Mower",
@@ -107,7 +107,7 @@ db.sequelize.sync(syncOptions).then(function() {
         price: 165.87,
         fileURL: "Insert Path Here",
         CategoryId: 3,
-        SellerId: 3
+        UserId: 3
       }
     ]);
   }

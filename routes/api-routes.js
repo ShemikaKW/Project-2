@@ -7,14 +7,12 @@ module.exports = function(app) {
       selectedTable;
 
     //Set selected table variable
-    if (reqParam === "seller") {
-      selectedTable = "Seller";
+    if (reqParam === "user") {
+      selectedTable = "User";
     } else if (reqParam === "item") {
       selectedTable = "Item";
-    } else if (reqParam === "category") {
-      selectedTable = "Category";
     } else {
-      res.render("404");
+      selectedTable = "Category";
     }
 
     //Select all from chosen table
@@ -24,8 +22,8 @@ module.exports = function(app) {
   });
 
   //Create a new seller
-  app.post("/api/seller", function(req, res) {
-    db.Seller.create({
+  app.post("/api/user", function(req, res) {
+    db.User.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email

@@ -42,19 +42,22 @@ db.sequelize.sync(syncOptions).then(function() {
         id: 1,
         firstName: "Daffy",
         lastName: "Duck",
-        email: "rabbitsAreDumb@aol.com"
+        email: "rabbitsAreDumb@aol.com",
+        username: "rabbitHater"
       },
       {
         id: 2,
         firstName: "Bugs",
         lastName: "Bunny",
-        email: "carrotLover@gmail.com"
+        email: "bugs.bunny@gmail.com",
+        username: "carrotLover"
       },
       {
         id: 3,
         firstName: "Elmer",
         lastName: "Fudd",
-        email: "bestHunterEver@comcast.net"
+        email: "bestHunterEver@comcast.net",
+        username: "gunLover123"
       }
     ]);
 

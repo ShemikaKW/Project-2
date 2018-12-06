@@ -5,24 +5,43 @@ body {
   background-size: cover;
   font-family: 'Oswald', sans-serif;
   font-size: 20px; 
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.create-form {
+#create-form {
   padding: 10px;
   margin: 5px;
   text-transform: capitalize;
+  background-color: black;
+  opacity: 0.90;
 }
 
-.btn {
-  margin: 15px;
+#newUserForm{
+  background-color: black;  
+  opacity: 0.94;
+  width: 100%;
+  margin: auto auto 0 auto;
+  padding: 50px;
+}
+
+label{
+  color: antiquewhite;
+}
+
+.btn, button {
+  margin-top: 20px;
   background-color: silver;
   color: black;
+  border-radius: 10px;
+  
+
 }
 #main-header{
-  text-align: center;
-  height: 100%;
-  color: antiquewhite;
+  color: antiquewhite; 
+  margin-top:10%;
+  margin-bottom:15%;
 }
 
 footer, #nav-bar {
@@ -30,15 +49,10 @@ footer, #nav-bar {
   opacity: 0.75;
 }
 
-footer{
-  margin-top: 20px;
-}
-#nav-bar{
-  margin-bottom: 20px; 
+.page-footer{
+width: 100%;
 }
 
-#main-header{
-  display:block;
-  margin-top:10%;
-  margin-bottom:10%;
+#nav-bar{
+  margin-bottom: 20px; 
 }

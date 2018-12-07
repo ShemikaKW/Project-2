@@ -1,42 +1,38 @@
-  {{!-- Main Text --}}
-  <div id="main-header" class="container justify-content-center">
-    <div class="row">
-      <h1>Second Hand Treasures</h1>
-    </div>
-    <div class="row">   
-      <a href="#create-form"><button class="btn">Sign Up</button></a>
-    </div>
+{{!-- Main Text --}}
+<div id="main-header" class="container justify-content-center">
+  <div class="row">
+    <h1>Second Hand Treasures</h1>
   </div>
+  <div class="row">   
+    <a href="#create-form"><button class="btn">Sign Up</button></a>
+  </div>
+</div>
 
-  {{!-- Registration Form / Add new user --}}
-  <div class="container col-12" id="newUserForm">
-    <div class="container col-md-6">
-      <form method="POST" action="/newUser" required="" minlength="1" id="create-form">
+{{!-- Registration Form / Add new user --}}
+<div class="container col-12" id="newUserForm">
+  <div class="container col-md-6">
+    <form method="POST" action="/newUser" required="" minlength="1" id="create-form">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputName">First Name</label>
+          <input type="text" class="form-control" id="inputName" placeholder="Name">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputLastName">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" placeholder="Lastname">
+        </div>
+
+        {{!-- New Row Email --}}
+        <div class="form-row col-md-12">
+          <label for="inputEmail">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com">
+        </div>
+
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputName">First Name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Name">
-          </div>
-
-          <div class="form-group col-md-6">
-            <label for="inputLastName">Last Name</label>
-            <input type="text" class="form-control" id="inputLastName" placeholder="Lastname">
-          </div>
-
-          {{!-- New Row Email --}}
-          <div class="form-row col-md-12">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com">
-          </div>
-
-          <div class="form-row">
-            <button type="submit" class="btn" id="signUpBtn">Sign me up!</button>
-          </div>
-
-        </div>  
-      </form>
-    </div>
+          <button type="submit" class="btn" id="signUpBtn">Sign me up!</button>
+        </div>
+      </div>  
+    </form>
   </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
- 
+</div>

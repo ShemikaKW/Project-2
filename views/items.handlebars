@@ -1,0 +1,16 @@
+<div class="container mx-auto mt-5">
+    <div class="row" id="all-items">
+        {{#each items}}
+            <div class="card text-center col-lg-4 col-md-4 col-sm-12 mb-4 d-flex align-items-stretch item-card">
+                <img class="card-img-top" src="{{fileURL}}" alt="{{name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">{{description}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#"><button class="btn btn-primary purchaseBtn">Purchase Item</button></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

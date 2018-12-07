@@ -14,3 +14,33 @@
         {{/each}}
     </div>
 </div>
+
+{{!-- Need to get this information into above info.
+{{!-- Main Text --}}
+<div id="main-header" class="container justify-content-center">
+    <div class="row">
+      <h1>Second Hand Treasures</h1>
+    </div>
+    <div class="row">   
+      <a href="#create-form"><button class="btn">Sign Up</button></a>
+    </div>
+  </div>
+{{!--Upload image --}}
+<div class="container col-12" id="imageupload">
+    <div class="container col-md-6">
+      <form method="POST" action="/newUser" required="" minlength="1" class="upload-form">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+          <div class="form-row col-md-12">
+            <label for="inputUserName">UserName</label>
+            <input type="text" class="user_id" id="inputuser" placeholder="Name">
+            <input id="newImage" placeholder="jpeg/png" type="file" accept=".png, .jpeg, .jpg"
+
+          </div>
+
+          <div class="form-row">
+            <button type="submit" class="btn" id="upload">Post Image</button>
+          </div>
+
+        </div>  
+      </form> --}}

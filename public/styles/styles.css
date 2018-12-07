@@ -56,3 +56,11 @@ width: 100%;
 #nav-bar{
   margin-bottom: 20px; 
 }
+
+#all-items > .item-card {
+  margin: 10px;
+}
+
+.purchaseBtn {
+  margin: 0 auto;
+}

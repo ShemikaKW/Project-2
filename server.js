@@ -43,21 +43,21 @@ db.sequelize.sync(syncOptions).then(function() {
         firstName: "Daffy",
         lastName: "Duck",
         email: "rabbitsAreDumb@aol.com",
-        username: "rabbitHater"
+        password: "Test1"
       },
       {
         id: 2,
         firstName: "Bugs",
         lastName: "Bunny",
         email: "bugs.bunny@gmail.com",
-        username: "carrotLover"
+        password: "Test2"
       },
       {
         id: 3,
         firstName: "Elmer",
         lastName: "Fudd",
         email: "bestHunterEver@comcast.net",
-        username: "gunLover123"
+        password: "Test3"
       }
     ]);
 

@@ -25,11 +25,16 @@ $(function() {
     $.ajax("/api/user", {
       type: "POST",
       data: newUser
-    }).then(function() {
-      console.log("Created new user");
-      // Reroute to search page
-      $("#create-form").val("");
-      window.location = "/search";
+    }).then(function(data) {
+      console.log("Created new user " + data);
+      if (data === 1) {
+        console.log("data " + data);
+        $("#Signup-Error-Modal").modal("show");
+        $("#create-form").val("");
+      } else {
+        $("#create-form").val("");
+        window.location = "/search";
+      }
     });
   });
 });

@@ -1,4 +1,5 @@
-var db = require("../models");
+var crypt = require("apache-crypt"),
+  db = require("../models");
 
 module.exports = function(app) {
   //Get all sellers
@@ -21,13 +22,35 @@ module.exports = function(app) {
     });
   });
 
+  //Login
+  app.post("api/login", function(req, res) {
+    db.User.find({
+      where: { email: req.body.email }
+    })
+      .then(function(data) {
+        //get submitted password
+        var pass = req.body.password;
+
+        //check if the password provided matches the stored password
+        if (crypt(pass, encryptedPassword) === data.password) {
+          res.send(200);
+        } else {
+          res.send(401);
+        }
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  });
+
   //Create a new user
   app.post("/api/user", function(req, res) {
+    var encryptedPassword = crypt(req.body.password);
     db.User.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      password: req.body.password
+      password: encryptedPassword
     }).then(function(data) {
       res.json(data);
     });

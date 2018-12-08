@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: DataTypes.TEXT,
     price: DataTypes.DECIMAL(10, 2),
-    fileURL: DataTypes.TEXT,
+    image: DataTypes.TEXT,
     purchased: {
       type: DataTypes.BOOLEAN,
       defaultValue: false

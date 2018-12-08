@@ -26,12 +26,17 @@ $(function() {
       type: "POST",
       data: newUser
     }).then(function(data) {
-      //store user id
-      sessionStorage.setItem("userID", parseInt(data.id));
+      //email unique violation
+      if (data.name === "SequelizeUniqueConstraintError") {
+        $("#Signup-Error-Modal").modal("show");
+      } else {
+        //store user id
+        sessionStorage.setItem("userID", parseInt(data.id));
 
-      // Reroute to search page
-      $("#create-form").val("");
-      window.location = "/search";
+        // Reroute to search page
+        $("#create-form").val("");
+        window.location = "/search";
+      }
     });
   });
 });

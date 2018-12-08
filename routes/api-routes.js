@@ -47,7 +47,7 @@ module.exports = function(app) {
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
-      fileURL: req.body.fileURL
+      image: req.body.image
     }).then(function(data) {
       res.json(data);
     });

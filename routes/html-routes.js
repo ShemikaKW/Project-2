@@ -1,6 +1,11 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  //Load main page
+  app.get("/", function(req, res) {
+    res.render("index");
+  });
+
   // Load index page
   app.get("/search", function(req, res) {
     db.sequelize.models.Item.findAll({

@@ -82,7 +82,7 @@ db.sequelize.sync(syncOptions).then(function() {
         name: "Playstation 4",
         description: "This is a playstation 4 with 1 controller.",
         price: 299.99,
-        fileURL: "Insert Path Here",
+        image: "Insert Image Here",
         CategoryId: 1,
         UserId: 1
       },
@@ -91,7 +91,7 @@ db.sequelize.sync(syncOptions).then(function() {
         name: "Stand Mixer",
         description: "Red stand mixer",
         price: 105,
-        fileURL: "Insert Path Here",
+        image: "Insert Image Here",
         CategoryId: 2,
         UserId: 2
       },
@@ -100,7 +100,7 @@ db.sequelize.sync(syncOptions).then(function() {
         name: "Toaster Oven",
         description: "Slightly used toaster oven, works great!",
         price: 35.25,
-        fileURL: "Insert Path Here",
+        image: "Insert Image Here",
         CategoryId: 2,
         UserId: 2
       },
@@ -108,7 +108,7 @@ db.sequelize.sync(syncOptions).then(function() {
         name: "Lawn Mower",
         description: "Gas powered, push mower",
         price: 165.87,
-        fileURL: "Insert Path Here",
+        image: "Insert Image Here",
         CategoryId: 3,
         UserId: 3
       }

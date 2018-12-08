@@ -1,4 +1,6 @@
-var db = require("../models");
+var bcrypt = require("bcrypt"),
+  saltRounds = 10,
+  db = require("../models");
 
 module.exports = function(app) {
   //Get all sellers
@@ -21,7 +23,27 @@ module.exports = function(app) {
     });
   });
 
-  //Create a new seller
+  // //Login
+  app.post("/api/login", function(req, res) {
+    db.User.findOne({
+      where: { email: req.body.email }
+    })
+      .then(function(data) {
+        bcrypt.compare(req.body.password, data.password).then(function(valid) {
+          //check if the password provided matches the stored password
+          if (valid) {
+            res.sendStatus(200);
+          } else {
+            res.send("Incorrect Password");
+          }
+        });
+      })
+      .catch(function() {
+        res.send("No Account");
+      });
+  });
+
+  //Create a new user
   app.post("/api/user", function(req, res) {
     db.User.findAndCountAll({
       where: {
@@ -34,14 +56,16 @@ module.exports = function(app) {
       if (result.count > 0) {
         res.json(result.count);
       } else {
-        db.User.create({
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          email: req.body.email,
-          password: req.body.password
-        }).then(function(data) {
-          console.log("post data " + JSON.stringify(data));
-          res.json(data);
+        bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
+          //create user in database
+          db.User.create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: hash
+          }).then(function(data) {
+            res.json(data);
+          });
         });
       }
     });
@@ -62,7 +86,7 @@ module.exports = function(app) {
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
-      fileURL: req.body.fileURL
+      image: req.body.image
     }).then(function(data) {
       res.json(data);
     });

@@ -10,7 +10,8 @@ body {
   min-height: 100vh;
 }
 
-#create-form {
+#create-form, #create-login-form {
+  margin-top: 15px;
   padding: 10px;
   margin: 5px;
   text-transform: capitalize;
@@ -45,6 +46,7 @@ label{
 }
 
 footer, #nav-bar {
+  display: flex;
   padding: 15px;
   opacity: 0.75;
 }

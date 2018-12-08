@@ -35,6 +35,10 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     res.render("login");
   });
+  // Render form to create new items
+  app.get("/add-item", function(req, res) {
+    res.render("add-item");
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

@@ -1,22 +1,31 @@
-// views/add-item.handlebars
-{{!-- Item Form --}}
 <div id="main-header" class="container justify-content-center">
     <div class="row">
-      <h1>Second Hand Treasures</h1>
+        <h1>Second Hand Treasures</h1>
     </div>
-<div>
-    <form id="add-item">
-        <label for="item">Item Name</label>
-        <input id='item-name' type="text" placeholder="Item name" />
-        <label for="descriptionOfItem">Item Description</label>
-        <textarea id='item-description' type="text" placeholder="Description of item" />
-        <label for="itemPrice">Item Price</label>
-        <input id='item-price' type="number" placeholder="Price" />
-        <label for="itemImage">Item Image</label>
+
+    {{!-- Item Form --}}
+
+    <div class="container col-12" id="newItemForm">
+        <div class="container col-md-8">
+            <form method="POST" action="/create" required="" minlength="1" id="add-item">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="item">Item Name</label>
+                        <input id='item-name' type="text" placeholder="Item name" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="descriptionOfItem">Item Description</label>
+                        <input id='item-description' type="text" placeholder="Description of item" />
+                        </div>
+        <div class="form-group col-md-6">
+            <label for="itemPrice">Item Price</label>
+            <input id='item-price' type="number" placeholder="Price" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="itemImage">Item Image</label>
         <input id='newImage' type="file" placeholder="jpeg/png" accept=".jpeg, .png, .jpg">  />
+        </div>
         <button type="submit" class="btn" id="upload">Post Item</button>
          
     </form>
 </div>
-
-

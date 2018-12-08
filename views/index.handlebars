@@ -3,36 +3,40 @@
   <div class="row">
     <h1>Second Hand Treasures</h1>
   </div>
-  <div class="row">   
+  <div class="row">
     <a href="#create-form"><button class="btn">Sign Up</button></a>
   </div>
 </div>
 
 {{!-- Registration Form / Add new user --}}
 <div class="container col-12" id="newUserForm">
-  <div class="container col-md-6">
-    <form method="POST" action="/newUser" required="" minlength="1" id="create-form">
+  <div class="container col-md-8">
+    <form method="POST" action="/create" required="" minlength="1" id="create-form">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputName">First Name</label>
-          <input type="text" class="form-control" id="inputName" placeholder="Name">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Name" required="" minlength="1">
         </div>
-
         <div class="form-group col-md-6">
-          <label for="inputLastName">Last Name</label>
-          <input type="text" class="form-control" id="inputLastName" placeholder="Lastname">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Lastname" required="" minlength="1">
         </div>
 
-        {{!-- New Row Email --}}
-        <div class="form-row col-md-12">
-          <label for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com">
+        {{!-- New Row Email and password--}}
+        <div class="form-group col-md-6">
+          <label for="email">Enter email address.(This will be your login)</label>
+          <input type="email" class="form-control" id="email" placeholder="email@example.com" required="" minlength="1">
         </div>
-
-        <div class="form-row">
-          <button type="submit" class="btn" id="signUpBtn">Sign me up!</button>
+        <div class="form-group col-md-6">
+          <label for="password">Create a password</label>
+          <input type="text" class="form-control" id="password" placeholder="Create a password"required="" minlength="1">
         </div>
-      </div>  
+        <div class="form-group col-md-6">
+          <div class="form-row">
+            <button type="submit" class="btn" id="signUpBtn">Sign me up!</button>
+          </div>
+        </div>  
+      </div>
     </form>
   </div>
 </div>

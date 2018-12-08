@@ -23,13 +23,27 @@ module.exports = function(app) {
 
   //Create a new seller
   app.post("/api/user", function(req, res) {
-    db.User.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password
-    }).then(function(data) {
-      res.json(data);
+    db.User.findAndCountAll({
+      where: {
+        email: req.body.email
+      },
+      limit: 1
+    }).then(function(result) {
+      console.log("Count: " + result.count);
+      console.log(result.rows);
+      if (result.count > 0) {
+        res.json(result.count);
+      } else {
+        db.User.create({
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          password: req.body.password
+        }).then(function(data) {
+          console.log("post data " + JSON.stringify(data));
+          res.json(data);
+        });
+      }
     });
   });
 

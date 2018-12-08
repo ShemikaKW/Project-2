@@ -1,5 +1,5 @@
 $(function() {
-  //Creating a new burger
+  //Creating a new User
   $("#create-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -24,11 +24,21 @@ $(function() {
     $.ajax("/api/user", {
       type: "POST",
       data: newUser
-    }).then(function() {
-      console.log("Created new user");
-      // Reroute to search page
-      $("#create-form").val("");
-      window.location = "/search";
+    }).then(function(data) {
+      console.log("Created new user " + data);
+      if (data === 1) {
+        console.log("data " + data);
+        $("#Signup-Error-Modal").modal("show");
+        // $("#Signup-Error-Modal").attr({
+        //   class: "modal fade show",
+        //   style: "block"
+        // });
+        // $("#Signup-Error-Modal").removeAttr("aria-hidden");
+        $("#create-form").val("");
+      } else {
+        $("#create-form").val("");
+        window.location = "/search";
+      }
     });
   });
 });

@@ -45,29 +45,23 @@ module.exports = function(app) {
 
   //Create a new user
   app.post("/api/user", function(req, res) {
-    db.User.findAndCountAll({
-      where: {
-        email: req.body.email
-      },
-      limit: 1
-    }).then(function(result) {
-      console.log("Count: " + result.count);
-      console.log(result.rows);
-      if (result.count > 0) {
-        res.json(result.count);
-      } else {
-        bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
-          //create user in database
-          db.User.create({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: hash
-          }).then(function(data) {
-            res.json(data);
-          });
+    //Take password from request and hash it for storage in database
+    bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
+      //create user in database
+      db.User.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: hash
+      })
+        //return newly created user to the front-end
+        .then(function(data) {
+          res.json(data);
+        })
+        //catch error and return to front-end (ex. Email already exists in database)
+        .catch(function(err) {
+          res.send(err);
         });
-      }
     });
   });
 

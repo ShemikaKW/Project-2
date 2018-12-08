@@ -1,4 +1,5 @@
-var crypt = require("apache-crypt"),
+var bcrypt = require("bcrypt"),
+  saltRounds = 10,
   db = require("../models");
 
 module.exports = function(app) {
@@ -22,37 +23,39 @@ module.exports = function(app) {
     });
   });
 
-  //Login
-  app.post("api/login", function(req, res) {
-    db.User.find({
+  // //Login
+  app.post("/api/login", function(req, res) {
+    db.User.findOne({
       where: { email: req.body.email }
     })
       .then(function(data) {
-        //get submitted password
-        var pass = req.body.password;
-
-        //check if the password provided matches the stored password
-        if (crypt(pass, encryptedPassword) === data.password) {
-          res.send(200);
-        } else {
-          res.send(401);
-        }
+        bcrypt.compare(req.body.password, data.password).then(function(valid) {
+          //check if the password provided matches the stored password
+          if (valid) {
+            res.sendStatus(200);
+          } else {
+            res.send("Incorrect Password");
+          }
+        });
       })
-      .catch(function(err) {
-        console.log(err);
+      .catch(function() {
+        res.send("No Account");
       });
   });
 
   //Create a new user
   app.post("/api/user", function(req, res) {
-    var encryptedPassword = crypt(req.body.password);
-    db.User.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: encryptedPassword
-    }).then(function(data) {
-      res.json(data);
+    //encrypt password
+    bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
+      //create user in database
+      db.User.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: hash
+      }).then(function(data) {
+        res.json(data);
+      });
     });
   });
 

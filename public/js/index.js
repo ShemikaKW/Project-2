@@ -36,7 +36,7 @@ $(function() {
 
 //Login Form
 $(function() {
-  //logining in
+  //log in
   $("#create-login-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -55,11 +55,14 @@ $(function() {
     $.ajax("/api/login", {
       type: "POST",
       data: userLogin
-    }).then(function() {
-      console.log("login successful");
-      // Reroute to search page
-      $("#create-login-form").val("");
-      window.location = "/search";
+    }).then(function(data) {
+      if (data === "Incorrect Password") {
+        alert("Invalid Password!");
+      } else if (data === "No Account") {
+        alert("No Account Found!");
+      } else {
+        window.location = "/search";
+      }
     });
   });
 });

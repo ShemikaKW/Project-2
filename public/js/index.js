@@ -25,8 +25,10 @@ $(function() {
     $.ajax("/api/user", {
       type: "POST",
       data: newUser
-    }).then(function() {
-      console.log("Created new user");
+    }).then(function(data) {
+      //store user id
+      sessionStorage.setItem("userID", parseInt(data.id));
+
       // Reroute to search page
       $("#create-form").val("");
       window.location = "/search";
@@ -61,6 +63,10 @@ $(function() {
       } else if (data === "No Account") {
         alert("No Account Found!");
       } else {
+        //store user id
+        sessionStorage.setItem("userID", parseInt(data.id));
+
+        //redirect user
         window.location = "/search";
       }
     });

@@ -32,7 +32,7 @@ module.exports = function(app) {
         bcrypt.compare(req.body.password, data.password).then(function(valid) {
           //check if the password provided matches the stored password
           if (valid) {
-            res.sendStatus(200);
+            res.status(200).send(data);
           } else {
             res.send("Incorrect Password");
           }

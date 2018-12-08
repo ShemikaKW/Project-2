@@ -30,11 +30,6 @@ $(function() {
       if (data === 1) {
         console.log("data " + data);
         $("#Signup-Error-Modal").modal("show");
-        // $("#Signup-Error-Modal").attr({
-        //   class: "modal fade show",
-        //   style: "block"
-        // });
-        // $("#Signup-Error-Modal").removeAttr("aria-hidden");
         $("#create-form").val("");
       } else {
         $("#create-form").val("");

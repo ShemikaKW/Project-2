@@ -1,21 +1,24 @@
 {{!-- NavBar --}}
-<nav class="navbar navbar-expand-lg navbar-light bg-light grey lighten-2 fixed-top" id="nav-bar">
+<nav class="navbar navbar-expand-lg mb-5 navbar-light bg-light grey lighten-2 fixed-top" id="nav-bar">
   <div class="collapse navbar-collapse" id="main-navbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Search</a>
+        <a class="nav-link" href="/search">Search</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Browse</a>
       </li>
       <li role="separator" class="divider"></li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" id="logins">
       <li>
-        <a href=:"#">Sign Up <i class="fas fa-dollar-sign fa-large"></i></a>
+        <a href="/#create-form">Sign Up <i class="fas fa-dollar-sign fa-large">|</i></a>
+      </li>
+      <li>
+        <a href="/login">Login <i class="fas fa-user fa-large"></i></a>
       </li>
     </ul>
   </div>

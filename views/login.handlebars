@@ -1,0 +1,25 @@
+{{!-- Login --}}
+<div class="container col-12 mt-5" id="login-form">
+    <div class="container col-md-8">
+        <form method="GET" action="/create" required="" minlength="1" id="create-login-form">
+            <div class="form-row">
+                {{!-- New Row Email and password--}}
+                <div class="form-group col-md-6">
+                    <label for="email">Login using your email.</label>
+                    <input type="email" class="form-control" id="email" placeholder="email@example.com" required=""
+                        minlength="1">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" id="password" placeholder="Enter Password" required=""
+                        minlength="1">
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-row">
+                        <button type="submit" class="btn" id="loginBtn">Sign In</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

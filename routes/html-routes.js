@@ -13,15 +13,16 @@ module.exports = function(app) {
         purchased: false
       },
       order: ["name"]
-    }).then(function(dbItems) {
-      res
-        .render("items", {
+    })
+      .then(function(dbItems) {
+        res.render("items", {
           items: dbItems
-        })
-        .catch(function(err) {
-          console.error(err);
         });
-    });
+      })
+      .catch(function(err) {
+        console.error(err);
+        res.end();
+      });
   });
 
   // Load login page

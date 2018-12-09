@@ -18,25 +18,35 @@ module.exports = function(app) {
     }
 
     //Select all from chosen table
-    db[selectedTable].findAll({}).then(function(data) {
-      res.json(data);
-    });
+    db[selectedTable]
+      .findAll({})
+      .then(function(data) {
+        res.json(data);
+      })
+      .catch(function(err) {
+        console.error(err);
+      });
   });
 
-  // //Login
+  //Login
   app.post("/api/login", function(req, res) {
     db.User.findOne({
       where: { email: req.body.email }
     })
       .then(function(data) {
-        bcrypt.compare(req.body.password, data.password).then(function(valid) {
-          //check if the password provided matches the stored password
-          if (valid) {
-            res.status(200).send(data);
-          } else {
-            res.send("Incorrect Password");
-          }
-        });
+        bcrypt
+          .compare(req.body.password, data.password)
+          .then(function(valid) {
+            //check if the password provided matches the stored password
+            if (valid) {
+              res.status(200).send(data);
+            } else {
+              res.send("Incorrect Password");
+            }
+          })
+          .catch(function(err) {
+            console.error(err);
+          });
       })
       .catch(function() {
         res.send("No Account");
@@ -46,62 +56,74 @@ module.exports = function(app) {
   //Create a new user
   app.post("/api/user", function(req, res) {
     //Take password from request and hash it for storage in database
-    bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
-      //create user in database
-      db.User.create({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        password: hash
-      })
-        //return newly created user to the front-end
-        .then(function(data) {
-          res.json(data);
+    bcrypt
+      .hash(req.body.password, saltRounds)
+      .then(function(hash) {
+        //create user in database
+        db.User.create({
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          password: hash
         })
-        //catch error and return to front-end (ex. Email already exists in database)
-        .catch(function(err) {
-          res.send(err);
-        });
-    });
+          //return newly created user to the front-end
+          .then(function(data) {
+            res.json(data);
+          })
+          //catch error and return to front-end
+          //ex. Email already exists in database
+          .catch(function(err) {
+            res.send(err);
+          });
+      })
+      .catch(function(err) {
+        console.error(err);
+      });
   });
 
   //Create a new category
   app.post("/api/category", function(req, res) {
     db.Category.create({
       name: req.body.name
-    }).then(function(data) {
-      res.json(data);
-    });
+    })
+      .then(function(data) {
+        res.json(data);
+      })
+      .catch(function(err) {
+        console.error(err);
+      });
   });
 
   //Create a new item
   app.post("/api/item", function(req, res) {
-    console.log(req.body, "====>");
-    // db.User.findOne({
-    //     where: {
-    //       email:" "
-    //     }
-    // })
     db.Item.create({
       uname: req.body.email,
       name: req.body.item,
       description: req.body.description,
       price: req.body.price,
       image: req.body.image
-    }).then(function(data) {
-      res.json(data);
-    });
+    })
+      .then(function(data) {
+        res.json(data);
+      })
+      .catch(function(err) {
+        console.error(err);
+      });
   });
 
-  //Delete item by id
+  //Update item by id
   app.put("/api/item/:id", function(req, res) {
     db.Item.update(
       { purchased: true },
       {
         where: { id: parseInt(req.params.id) }
       }
-    ).then(function(data) {
-      res.json(data);
-    });
+    )
+      .then(function(data) {
+        res.json(data);
+      })
+      .catch(function(err) {
+        console.error(err);
+      });
   });
 };

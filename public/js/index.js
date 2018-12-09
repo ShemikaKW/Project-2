@@ -32,6 +32,7 @@ $(function() {
         $("#Signup-Error-Modal").modal("show");
         $("#create-form").val("");
       } else {
+        // Reroute to search page
         $("#create-form").val("");
         window.location = "/search";
       }

@@ -32,6 +32,7 @@ module.exports = function(app) {
         bcrypt.compare(req.body.password, data.password).then(function(valid) {
           //check if the password provided matches the stored password
           if (valid) {
+            res.cookie("email", data.email);
             res.sendStatus(200);
           } else {
             res.send("Incorrect Password");
@@ -56,6 +57,7 @@ module.exports = function(app) {
       if (result.count > 0) {
         res.json(result.count);
       } else {
+        //encrypt password
         bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
           //create user in database
           db.User.create({
@@ -82,8 +84,15 @@ module.exports = function(app) {
 
   //Create a new item
   app.post("/api/item", function(req, res) {
+    console.log(req.body, "====>");
+    // db.User.findOne({
+    //     where: {
+    //       email:" "
+    //     }
+    // })
     db.Item.create({
-      name: req.body.name,
+      uname: req.body.email,
+      name: req.body.item,
       description: req.body.description,
       price: req.body.price,
       image: req.body.image

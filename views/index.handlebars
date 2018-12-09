@@ -9,9 +9,18 @@
 </div>
 
 {{!-- Registration Form / Add new user --}}
-<div class="modal fade bd-example-modal-lg show" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" style="display: block;">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+<div class="container col-12" id="newUserForm">
+  <div class="container col-md-8">
+    <form method="POST" action="" required="" minlength="1" id="create-form">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Name" required="" minlength="1">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Lastname" required="" minlength="1">
+        </div>
 
       <div class="modal-header">
         <h5 class="modal-title h4" id="myLargeModalLabel">Sign In</h5>

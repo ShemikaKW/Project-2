@@ -25,11 +25,13 @@ $(function() {
     $.ajax("/api/user", {
       type: "POST",
       data: newUser
-    }).then(function() {
+    }).then(function(data) {
       console.log("Created new user");
       // Reroute to search page
       $("#create-form").val("");
-      window.location = "/search";
+      $('#add-email').val(data.email);
+        let url = "/search";
+      window.location = url;
     });
   });
 });

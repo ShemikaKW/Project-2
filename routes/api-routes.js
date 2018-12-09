@@ -3,26 +3,6 @@ var bcrypt = require("bcrypt"),
   db = require("../models");
 
 module.exports = function(app) {
-  //Get all sellers
-  app.get("/api/:table", function(req, res) {
-    var reqParam = req.params.table,
-      selectedTable;
-
-    //Set selected table variable
-    if (reqParam === "user") {
-      selectedTable = "User";
-    } else if (reqParam === "item") {
-      selectedTable = "Item";
-    } else {
-      selectedTable = "Category";
-    }
-
-    //Select all from chosen table
-    db[selectedTable].findAll({}).then(function(data) {
-      res.json(data);
-    });
-  });
-
   // //Login
   app.post("/api/login", function(req, res) {
     db.User.findOne({
@@ -32,6 +12,7 @@ module.exports = function(app) {
         bcrypt.compare(req.body.password, data.password).then(function(valid) {
           //check if the password provided matches the stored password
           if (valid) {
+            res.cookie("email", data.email);
             res.sendStatus(200);
           } else {
             res.send("Incorrect Password");
@@ -56,6 +37,7 @@ module.exports = function(app) {
       }).then(function(data) {
         res.json(data);
       });
+      //res.send('{"email": "test@SpeechGrammarList.com"}')
     });
   });
 
@@ -70,11 +52,18 @@ module.exports = function(app) {
 
   //Create a new item
   app.post("/api/item", function(req, res) {
+    console.log(req.body, '====>');
+    // db.User.findOne({
+    //     where: {
+    //       email:" "
+    //     }
+    // })
     db.Item.create({
-      name: req.body.name,
+      uname: req.body.email,
+      name: req.body.item,
       description: req.body.description,
       price: req.body.price,
-      image: req.body.base64
+      image: req.body.image
     }).then(function(data) {
       res.json(data);
     });
@@ -88,6 +77,26 @@ module.exports = function(app) {
         where: { id: parseInt(req.params.id) }
       }
     ).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  //Get all sellers
+  app.get("/api/:table", function(req, res) {
+    var reqParam = req.params.table,
+      selectedTable;
+
+    //Set selected table variable
+    if (reqParam === "user") {
+      selectedTable = "User";
+    } else if (reqParam === "item") {
+      selectedTable = "Item";
+    } else {
+      selectedTable = "Category";
+    }
+
+    //Select all from chosen table
+    db[selectedTable].findAll({}).then(function(data) {
       res.json(data);
     });
   });

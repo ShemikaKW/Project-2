@@ -66,3 +66,8 @@ width: 100%;
 .purchaseBtn {
   margin: 0 auto;
 }
+
+.item-card img {
+  width: 150px;
+  margin: 0 auto;
+}

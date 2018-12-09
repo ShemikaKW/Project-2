@@ -1,11 +1,19 @@
+{{!-- Main Text --}}
+<div id="main-header" class="container justify-content-center">
+    <div class="row">
+        <h1>Second Hand Treasures</h1>
+    </div>
+</div>
+
 {{!-- Login --}}
 <div class="container col-10 mt-5" id="login-form">
     <div class="container col-md-8">
+        {{!-- Login form Email and password--}}
         <form method="GET" action="/create" required="" minlength="1" id="create-login-form">
+            <h3>Fill out form below to login:</h3>
             <div class="form-row">
-                {{!-- New Row Email and password--}}
                 <div class="form-group col-md-6">
-                    <label for="email">Login using your email.</label>
+                    <label for="email">Login using your email</label>
                     <input type="email" class="form-control" id="email" placeholder="email@example.com" required="" minlength="1">
                 </div>
                 <div class="form-group col-md-6">

@@ -4,48 +4,46 @@ body {
   background-attachment: fixed;
   background-size: cover;
   font-family: 'Oswald', sans-serif;
-  font-size: 20px; 
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-#create-form, #create-login-form {
-  margin-top: 15px;
-  padding: 10px;
-  margin: 5px;
+#create-form,
+#newUserForm, 
+#create-login-form,
+#newItemForm {
+  margin: 15px auto;
+  padding: 50px;
   text-transform: capitalize;
   background-color: black;
-  opacity: 0.90;
+  opacity: 0.92;
   border-radius: 15px;
 }
 
-#newUserForm{
-  background-color: black;  
-  opacity: 0.94;
-  width: 100%;
-  padding: 50px;
-}
-
-label{
+label {
   color: antiquewhite;
 }
 
-.btn, button {
+.btn,
+button {
   margin-top: 20px;
   background-color: silver;
   color: black;
   border-radius: 10px;
-  
+
 
 }
-#main-header{
-  color: antiquewhite; 
-  margin-top:10%;
-  margin-bottom:15%;
+
+#main-header {
+  color: antiquewhite;
+  margin-top: 10%;
+  margin-bottom: 15px;
 }
 
-footer, #nav-bar {
+footer,
+#nav-bar {
   display: flex;
   padding: 15px;
   opacity: 0.85;
@@ -60,11 +58,11 @@ footer {
 
 }
 
-#nav-bar{
+#nav-bar {
   border-radius: 0 0 10px 10px;
 }
 
-#all-items > .item-card {
+#all-items>.item-card {
   margin: 10px;
 }
 

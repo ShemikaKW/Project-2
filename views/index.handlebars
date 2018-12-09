@@ -3,14 +3,11 @@
   <div class="row">
     <h1>Second Hand Treasures</h1>
   </div>
-  <div class="row">
-    <a href="#create-form"><button class="btn">Sign Up</button></a>
-  </div>
 </div>
 
 {{!-- Registration Form / Add new user --}}
-<div class="container col-12" id="newUserForm">
-  <div class="container col-md-8">
+<div class="container col-8 mt-5" id="newUserForm">
+  <div class="container col-md-12">
     <form method="POST" action="" required="" minlength="1" id="create-form">
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -24,11 +21,12 @@
 
         {{!-- New Row Email and password--}}
         <div class="form-group col-md-6">
-          <label for="email">Enter email address.(This will be your username)</label>
+          <label for="email">Enter email address</label>
           <input type="email" class="form-control" id="email" placeholder="email@example.com" required="" minlength="1">
         </div>
         <div class="form-group col-md-6">
           <label for="password">Create a password</label>
+          <br>
           <input type="text" class="form-control" id="password" placeholder="Create a password"required="" minlength="1">
         </div>
         <div class="form-group col-md-6">
@@ -40,6 +38,7 @@
     </form>
   </div>
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="Signup-Error-Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

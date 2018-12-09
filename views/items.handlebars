@@ -1,4 +1,5 @@
 <div class="container mx-auto mt-5">
+   {{!-- <input type="email" id="uname-read"style="color: red" > {{uname}}</input> --}}
     <div class="row" id="all-items">
         {{#each items}}
             <div class="card text-center col-lg-4 col-md-4 col-sm-12 mb-4 d-flex align-items-stretch item-card">
@@ -7,6 +8,7 @@
                     <h5 class="card-title">{{name}}</h5>
                     <p class="card-text">{{description}}</p>
                 </div>
+                
                 <div class="card-footer">
                     <a href="#"><button class="btn btn-primary purchaseBtn">Purchase Item</button></a>
                 </div>

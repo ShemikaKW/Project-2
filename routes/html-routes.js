@@ -1,11 +1,6 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  //Load main page
-  app.get("/", function(req, res) {
-    res.render("index");
-  });
-
   // Load index page
   app.get("/search", function(req, res) {
     db.sequelize.models.Item.findAll({
@@ -15,18 +10,25 @@ module.exports = function(app) {
       order: ["name"]
     }).then(function(dbItems) {
       res.render("items", {
-        items: dbItems
+        items: dbItems,
+        uname: req.params.email
       });
     });
   });
 
-  // Render 404 page for any unmatched routes
+  //Load main page
   app.get("/", function(req, res) {
     res.render("index");
   });
+
   // Load login page
   app.get("/login", function(req, res) {
     res.render("login");
+  });
+
+  // Render form to create new items
+  app.get("/add-item", function(req, res) {
+    res.render("add-item");
   });
 
   // Render 404 page for any unmatched routes

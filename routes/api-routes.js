@@ -76,8 +76,15 @@ module.exports = function(app) {
 
   //Create a new item
   app.post("/api/item", function(req, res) {
+    console.log(req.body, "====>");
+    // db.User.findOne({
+    //     where: {
+    //       email:" "
+    //     }
+    // })
     db.Item.create({
-      name: req.body.name,
+      uname: req.body.email,
+      name: req.body.item,
       description: req.body.description,
       price: req.body.price,
       image: req.body.image

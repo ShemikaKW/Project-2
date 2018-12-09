@@ -4,62 +4,74 @@ body {
   background-attachment: fixed;
   background-size: cover;
   font-family: 'Oswald', sans-serif;
-  font-size: 20px; 
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-#create-form, #create-login-form {
-  margin-top: 15px;
-  padding: 10px;
-  margin: 5px;
+#create-form,
+#create-login-form,
+#add-item {
+  padding: 50px;
   text-transform: capitalize;
   background-color: black;
-  opacity: 0.90;
+  opacity: 0.92;
+  border-radius: 25px;
 }
 
-#newUserForm{
-  background-color: black;  
-  opacity: 0.94;
-  width: 100%;
-  margin: auto auto 0 auto;
-  padding: 50px;
+#newItemForm,
+#login-form,
+#newUserForm {
+  margin-bottom: 10%;
 }
 
-label{
+
+label {
   color: antiquewhite;
 }
 
-.btn, button {
+h3 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-transform: none;
+}
+
+.btn,
+button {
   margin-top: 20px;
   background-color: silver;
   color: black;
   border-radius: 10px;
-  
-
-}
-#main-header{
-  color: antiquewhite; 
-  margin-top:10%;
-  margin-bottom:15%;
 }
 
-footer, #nav-bar {
+#main-header {
+  color: antiquewhite;
+  margin-top: 100px;
+  margin-bottom: 15px;
+}
+
+footer,
+#nav-bar {
   display: flex;
   padding: 15px;
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
-.page-footer{
-width: 100%;
+footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
 }
 
-#nav-bar{
-  margin-bottom: 20px; 
+#nav-bar {
+  border-radius: 0 0 10px 10px;
 }
 
-#all-items > .item-card {
+#all-items>.item-card {
   margin: 10px;
 }
 

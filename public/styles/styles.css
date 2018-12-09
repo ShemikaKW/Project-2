@@ -1,5 +1,5 @@
 body {
-  background-image: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-547660.jpg);
+  background-image: url("https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-547660.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -19,12 +19,12 @@ body {
   opacity: 0.90;
 }
 
-#newUserForm{
+#newUserForm, #login-form {
   background-color: black;  
-  opacity: 0.94;
+  opacity: 0.9;
   width: 100%;
-  margin: auto auto 0 auto;
-  padding: 50px;
+  margin: auto;
+  padding: 0;
 }
 
 label{
@@ -41,8 +41,8 @@ label{
 }
 #main-header{
   color: antiquewhite; 
-  margin-top:10%;
-  margin-bottom:15%;
+  margin-top: 10%;
+  margin-bottom: 5%;
 }
 
 footer, #nav-bar {

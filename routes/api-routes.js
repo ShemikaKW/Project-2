@@ -25,6 +25,7 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         console.error(err);
+        res.end();
       });
   });
 
@@ -78,6 +79,7 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         console.error(err);
+        res.end();
       });
   });
 
@@ -91,6 +93,7 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         console.error(err);
+        res.end();
       });
   });
 
@@ -108,6 +111,7 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         console.error(err);
+        res.end();
       });
   });
 
@@ -124,6 +128,7 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         console.error(err);
+        res.end();
       });
   });
 };

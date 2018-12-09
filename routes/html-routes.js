@@ -1,6 +1,11 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  //Load main page
+  app.get("/", function(req, res) {
+    res.render("index");
+  });
+
   // Load index page
   app.get("/search", function(req, res) {
     db.sequelize.models.Item.findAll({
@@ -9,16 +14,14 @@ module.exports = function(app) {
       },
       order: ["name"]
     }).then(function(dbItems) {
-      res.render("items", {
-        items: dbItems,
-        uname: req.params.email
-      });
+      res
+        .render("items", {
+          items: dbItems
+        })
+        .catch(function(err) {
+          console.error(err);
+        });
     });
-  });
-
-  //Load main page
-  app.get("/", function(req, res) {
-    res.render("index");
   });
 
   // Load login page

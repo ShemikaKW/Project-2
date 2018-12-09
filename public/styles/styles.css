@@ -11,19 +11,31 @@ body {
 }
 
 #create-form,
-#newUserForm, 
 #create-login-form,
-#newItemForm {
-  margin: 15px auto;
+#add-item {
   padding: 50px;
   text-transform: capitalize;
   background-color: black;
   opacity: 0.92;
-  border-radius: 15px;
+  border-radius: 25px;
 }
+
+#newItemForm,
+#login-form,
+#newUserForm {
+  margin-bottom: 10%;
+}
+
 
 label {
   color: antiquewhite;
+}
+
+h3 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-transform: none;
 }
 
 .btn,
@@ -32,13 +44,11 @@ button {
   background-color: silver;
   color: black;
   border-radius: 10px;
-
-
 }
 
 #main-header {
   color: antiquewhite;
-  margin-top: 10%;
+  margin-top: 100px;
   margin-bottom: 15px;
 }
 
@@ -55,7 +65,6 @@ footer {
   bottom: 0;
   width: 100%;
   border-radius: 10px 10px 0 0;
-
 }
 
 #nav-bar {

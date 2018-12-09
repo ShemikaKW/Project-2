@@ -36,11 +36,6 @@ $(function() {
         $("#create-form").val("");
         window.location = "/search";
       }
-
-      // $("#create-form").val("");
-      // $('#add-email').val(data.email);
-      //   let url = "/search";
-      // window.location = url;
     });
   });
 });

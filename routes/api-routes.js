@@ -3,6 +3,26 @@ var bcrypt = require("bcrypt"),
   db = require("../models");
 
 module.exports = function(app) {
+  //Get all sellers
+  app.get("/api/:table", function(req, res) {
+    var reqParam = req.params.table,
+      selectedTable;
+
+    //Set selected table variable
+    if (reqParam === "user") {
+      selectedTable = "User";
+    } else if (reqParam === "item") {
+      selectedTable = "Item";
+    } else {
+      selectedTable = "Category";
+    }
+
+    //Select all from chosen table
+    db[selectedTable].findAll({}).then(function(data) {
+      res.json(data);
+    });
+  });
+
   // //Login
   app.post("/api/login", function(req, res) {
     db.User.findOne({
@@ -26,18 +46,30 @@ module.exports = function(app) {
 
   //Create a new user
   app.post("/api/user", function(req, res) {
-    //encrypt password
-    bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
-      //create user in database
-      db.User.create({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        password: hash
-      }).then(function(data) {
-        res.json(data);
-      });
-      //res.send('{"email": "test@SpeechGrammarList.com"}')
+    db.User.findAndCountAll({
+      where: {
+        email: req.body.email
+      },
+      limit: 1
+    }).then(function(result) {
+      console.log("Count: " + result.count);
+      console.log(result.rows);
+      if (result.count > 0) {
+        res.json(result.count);
+      } else {
+        //encrypt password
+        bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
+          //create user in database
+          db.User.create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: hash
+          }).then(function(data) {
+            res.json(data);
+          });
+        });
+      }
     });
   });
 
@@ -52,7 +84,7 @@ module.exports = function(app) {
 
   //Create a new item
   app.post("/api/item", function(req, res) {
-    console.log(req.body, '====>');
+    console.log(req.body, "====>");
     // db.User.findOne({
     //     where: {
     //       email:" "
@@ -77,26 +109,6 @@ module.exports = function(app) {
         where: { id: parseInt(req.params.id) }
       }
     ).then(function(data) {
-      res.json(data);
-    });
-  });
-
-  //Get all sellers
-  app.get("/api/:table", function(req, res) {
-    var reqParam = req.params.table,
-      selectedTable;
-
-    //Set selected table variable
-    if (reqParam === "user") {
-      selectedTable = "User";
-    } else if (reqParam === "item") {
-      selectedTable = "Item";
-    } else {
-      selectedTable = "Category";
-    }
-
-    //Select all from chosen table
-    db[selectedTable].findAll({}).then(function(data) {
       res.json(data);
     });
   });

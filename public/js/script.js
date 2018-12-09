@@ -98,7 +98,7 @@ $(document).ready(function() {
           .then(function(data) {
             console.log("Response from the server:", data);
             // reload page to display images in proper column
-            location = reload();
+            location.reload();
           })
           .catch(function(error) {
             console.log(

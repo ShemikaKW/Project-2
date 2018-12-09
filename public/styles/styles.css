@@ -17,13 +17,13 @@ body {
   text-transform: capitalize;
   background-color: black;
   opacity: 0.90;
+  border-radius: 15px;
 }
 
 #newUserForm{
   background-color: black;  
   opacity: 0.94;
   width: 100%;
-  margin: auto auto 0 auto;
   padding: 50px;
 }
 
@@ -48,15 +48,20 @@ label{
 footer, #nav-bar {
   display: flex;
   padding: 15px;
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
-.page-footer{
-width: 100%;
+footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+
 }
 
 #nav-bar{
-  margin-bottom: 20px; 
+  border-radius: 0 0 10px 10px;
 }
 
 #all-items > .item-card {

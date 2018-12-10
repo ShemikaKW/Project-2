@@ -4,9 +4,10 @@
 </div>
 
 {{!-- Registration Form / Add new user --}}
-<div class="container col-12" id="newUserForm">
-  <div class="container col-md-8">
+<div class="container mt-5" id="newUserForm">
+  <div class="container col-md-12">
     <form method="POST" action="" required="" minlength="1" id="create-form">
+      <h3>Fill out form below to register:</h3>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="firstName">First Name</label>
@@ -17,7 +18,7 @@
           <input type="text" class="form-control" id="lastName" placeholder="Lastname" required="" minlength="1">
         </div>
 
-        {{!-- New Row Email and password--}}
+        {{!-- New Row Email and password --}}
         <div class="form-group col-md-6">
           <label for="email">Email Address</label>
           <input type="email" class="form-control" id="email" placeholder="email@example.com" required="" minlength="1">
@@ -27,12 +28,12 @@
           <input type="text" class="form-control" id="password" placeholder="Create a password"required="" minlength="1">
         </div>
         <div class="form-group col-md-6">
-          <div class="form-row">
-            <button type="submit" class="btn" id="signUpBtn">Sign me up!</button>
-          </div>
+        <div class="form-row">
+          <button type="submit" class="btn" id="signUpBtn">Sign me up!</button>
+        </div>
         </div>  
       </div>
-    </form>
+    </div>
   </div>
 </div>
 

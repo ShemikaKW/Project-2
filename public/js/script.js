@@ -14,31 +14,6 @@ function imageToBase64(file) {
   });
 }
 
-// function displayImgInBody(base64ImgStr) {
-//   // create an image tag with data from the base 64 image
-//   var img = $("<img />");
-//   img.src = base64ImgStr;
-
-//   //not sure if it should be "data" or "img"
-//   //Creates an empty canvas element
-//   var canvas = document.createElement("canvas");
-//   canvas.width = img.width;
-//   canvas.height = img.height;
-
-//   //Copy the image contents to the canvas
-
-//   var context = canvas.getContext("2d");
-//   context.drawImage(img, 0, 0);
-
-//   //This will hold a base64 representation of the image
-//   var dataUrl = canvas.toDataURL("image/jpg");
-
-//   // Append the image to the DOM
-//   var newImg = document.createElement("img");
-//   newImg.src = dataUrl;
-//   document.body.appendChild(newImage);
-// }
-
 function displayImgInBody2(base64ImgStr) {
   // Create elements
   var img = new Image();
@@ -111,21 +86,4 @@ $(document).ready(function() {
         console.log("Error converting image to base 64: " + error.message);
       });
   });
-
-  //   $("#create-item").on("click", function(e) {
-  //     // uname
-  //     var test = $("#uname-read").val();
-  //     console.log(test);
-  //   });;
 });
-
-//       // TODO: do we need this?
-//       // displayImgInBody(data);
-//     });
-//   });
-//   $("#add-item").on("submit", function(event) {
-//     event.preventDefault();
-//     var file = document.querySelector("input[type='file']").files[0]; //gets file from html
-
-//   convertImgToBase64(file)
-// .then(function(base64Data) {

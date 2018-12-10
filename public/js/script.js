@@ -57,6 +57,7 @@ $(document).ready(function() {
         var itemInfo = {
           uname: $("uname-read").val(),
           item: $("#item-name").val(),
+          CategoryId: $("#new-item-catagory").val("id"),
           description: $("#item-description").val(),
           price: $("#item-price").val(),
           // data = the image as base64
@@ -73,7 +74,7 @@ $(document).ready(function() {
           .then(function(data) {
             console.log("Response from the server:", data);
             // reload page to display images in proper column
-            location.reload();
+            // location.reload();
           })
           .catch(function(error) {
             console.log(

@@ -67,7 +67,7 @@ $(function() {
       } else if (data === "No Account") {
         alert("No Account Found!");
       } else {
-        window.location = "/login";
+        window.location = "/search";
       }
     });
   });

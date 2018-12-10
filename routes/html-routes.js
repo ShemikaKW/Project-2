@@ -3,8 +3,8 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/search", function(req, res) {
-  //  let userEmail = req.cookies('email');
-  //   console.log(userEmail, '---->');
+    //  let userEmail = req.cookies('email');
+    //   console.log(userEmail, '---->');
     db.sequelize.models.Item.findAll({
       where: {
         purchased: false

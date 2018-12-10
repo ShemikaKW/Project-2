@@ -81,7 +81,7 @@ $(function() {
 $(document).ready(function() {
   //Hides certain nav buttons if the user is logged in or has created an account
   if (!sessionStorage.userID) {
-    $("#searchNav, #createNav").hide();
+    $("#searchNav, #postNav").hide();
   } else {
     $("#loginNav").hide();
   }

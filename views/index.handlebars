@@ -1,12 +1,10 @@
 {{!-- Main Text --}}
 <div id="main-header" class="container justify-content-center">
-  <div class="row">
-    <h1>Second Hand Treasures</h1>
-  </div>
+  <h1>Second Hand Treasures</h1>
 </div>
 
 {{!-- Registration Form / Add new user --}}
-<div class="container mt-5" id="newUserForm">
+<div class="container" id="newUserForm">
   <div class="container col-md-12">
     <form method="POST" action="" required="" minlength="1" id="create-form">
       <h3>Fill out form below to register:</h3>
@@ -22,12 +20,11 @@
 
         {{!-- New Row Email and password --}}
         <div class="form-group col-md-6">
-          <label for="email">Enter email address</label>
+          <label for="email">Email Address</label>
           <input type="email" class="form-control" id="email" placeholder="email@example.com" required="" minlength="1">
         </div>
         <div class="form-group col-md-6">
-          <label for="password">Create a password</label>
-          <br>
+          <label for="password">Create a Password</label>
           <input type="text" class="form-control" id="password" placeholder="Create a password"required="" minlength="1">
         </div>
         <div class="form-group col-md-6">
@@ -45,16 +42,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ModalLabel">User Name Already in Use!</h5>
+        <h5 class="modal-title" id="ModalLabel">Email Address In Use!</h5>
         <button type="btn" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-       <ul>Please choose a different username.</ul>
-       <ul>Current Email-Address already in use.</ul>  
-       <ul>Thank You.</ul>
-        
+        <p>This email address is already associated with an account. Please enter a different email address.</p>  
+        <p>Thank You.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

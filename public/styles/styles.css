@@ -1,5 +1,5 @@
 body {
-  background-image: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-547660.jpg);
+  background-image: url("../images/wallhaven-547660.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -48,8 +48,8 @@ button {
 
 #main-header {
   color: antiquewhite;
-  margin-top: 100px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 footer,
@@ -76,5 +76,10 @@ footer {
 }
 
 .purchaseBtn {
+  margin: 0 auto;
+}
+
+.item-card img {
+  width: 150px;
   margin: 0 auto;
 }

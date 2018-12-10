@@ -26,12 +26,13 @@ $(function() {
       type: "POST",
       data: newUser
     }).then(function(data) {
-      console.log("Created new user " + data);
-      if (data === 1) {
-        console.log("data " + data);
+      //email unique violation
+      if (data.name === "SequelizeUniqueConstraintError") {
         $("#Signup-Error-Modal").modal("show");
-        $("#create-form").val("");
       } else {
+        //store user id
+        sessionStorage.setItem("userID", parseInt(data.id));
+
         // Reroute to search page
         $("#create-form").val("");
         window.location = "/search";
@@ -67,8 +68,21 @@ $(function() {
       } else if (data === "No Account") {
         alert("No Account Found!");
       } else {
+        //store user id
+        sessionStorage.setItem("userID", parseInt(data.id));
+
+        //redirect user
         window.location = "/search";
       }
     });
   });
+});
+
+$(document).ready(function() {
+  //Hides certain nav buttons if the user is logged in or has created an account
+  if (!sessionStorage.userID) {
+    $("#searchNav, #postNav").hide();
+  } else {
+    $("#loginNav").hide();
+  }
 });

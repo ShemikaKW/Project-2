@@ -4,7 +4,7 @@ function imageToBase64(file) {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function() {
-      // reader.result is the bsae64 string representing the file blob aka image data
+      // reader.result is the base64 string representing the file blob aka image data
       // will be passed to .then()
       resolve(reader.result);
     };
@@ -73,11 +73,11 @@ $(document).ready(function() {
           .then(function(data) {
             console.log("Response from the server:", data);
             // reload page to display images in proper column
-            location = reload();
+            location.reload();
           })
           .catch(function(error) {
             console.log(
-              "There was an error with PUT request to the backend",
+              "There was an error with POST request to the backend",
               error.message
             );
           });

@@ -31,6 +31,14 @@
                     <label for="itemImage">Item Image</label>
                     <input id='newImage' class="form-control" type="file" placeholder="jpeg/png" accept=".jpeg, .png, .jpg" >
                 </div>
+                 <div class="form-group col-md-6">
+                    <label for="itemCatagory">Item Catagory</label>
+                    <select class="form-control" id="new-item-catagory">
+                    {{#each catagories}}
+                        <option id="{{id}}">{{name}}</option>
+                    {{/each}}
+                    </select>
+                </div>
                 <div class="form-row">
                     <button type="submit" class="btn" id="upload">Post Item</button>
                 </div>

@@ -32,7 +32,16 @@ module.exports = function(app) {
 
   // Render form to create new items
   app.get("/add-item", function(req, res) {
-    res.render("add-item");
+    db.sequelize.models.Category.findAll()
+      .then(function(dbCatagories) {
+        res.render("add-item", {
+          catagories: dbCatagories
+        });
+      })
+      .catch(function(err) {
+        console.error(err);
+        res.end();
+      });
   });
 
   // Render 404 page for any unmatched routes

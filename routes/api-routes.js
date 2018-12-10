@@ -99,12 +99,15 @@ module.exports = function(app) {
 
   //Create a new item
   app.post("/api/item", function(req, res) {
+    console.log("session id: " + req);
     db.Item.create({
       uname: req.body.email,
       name: req.body.item,
       description: req.body.description,
       price: req.body.price,
-      image: req.body.image
+      image: req.body.image,
+      CategoryId: req.body.CategoryId,
+      UserId: req.body.userId
     })
       .then(function(data) {
         res.json(data);

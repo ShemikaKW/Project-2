@@ -17,7 +17,7 @@ function imageToBase64(file) {
 function displayImgInBody2(base64ImgStr) {
   // Create elements
   var img = new Image();
-  var canvas = document.createElement("canvas");
+  var canvas = $("<canvas>");
 
   // Set the image source
   img.src = base64ImgStr;
@@ -36,9 +36,8 @@ function displayImgInBody2(base64ImgStr) {
     var dataUrl = canvas.toDataURL("image/jpg");
 
     // Append the image to the DOM
-    var newImg = document.createElement("img");
-    newImg.src = dataUrl;
-    document.body.appendChild(newImage);
+    var newImg = $("<img>").attr("src", dataUrl);
+    document.body.appendChild(newImg);
   };
 }
 
@@ -60,25 +59,21 @@ $(document).ready(function() {
           CategoryId: $("#new-item-catagory").val(),
           userId: sessionStorage.userID
         };
-        console.log(itemInfo);
 
         displayImgInBody2(data);
-        console.log("Before ajax");
 
         $.ajax({
           method: "POST",
           url: "/api/item",
           data: itemInfo
         })
-          .then(function(data) {
-            console.log("Response from the server:", data);
+          .then(function() {
             //redirect user
             window.location = "/search";
           })
           .catch(function(error) {
             console.log(
-              "There was an error with PUT request to the backend",
-              error.message
+              "Error with PUT request to the backend: " + error.message
             );
           });
       })

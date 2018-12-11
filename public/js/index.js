@@ -64,9 +64,9 @@ $(function() {
       data: userLogin
     }).then(function(data) {
       if (data === "Incorrect Password") {
-        alert("Invalid Password!");
+        $("#InvalidPassword-Error-Modal").modal("show");
       } else if (data === "No Account") {
-        alert("No Account Found!");
+        $("#NoAccount-Error-Modal").modal("show");
       } else {
         //store user id
         sessionStorage.setItem("userID", parseInt(data.id));

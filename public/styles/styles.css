@@ -71,6 +71,10 @@ footer {
   border-radius: 0 0 10px 10px;
 }
 
+#items-container {
+  margin: 30px auto 150px auto;
+}
+
 #all-items>.item-card {
   margin: 10px;
   border-radius: 15px;

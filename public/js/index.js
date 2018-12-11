@@ -86,3 +86,19 @@ $(document).ready(function() {
     $("#loginNav").hide();
   }
 });
+
+$(document).ready(function() {
+  $("#all-items").on("click", ".purchaseBtn", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var itemId = parseInt($(this).data("id"));
+    // Send the POST request to login
+    $.ajax("/api/item/" + itemId, {
+      type: "PUT"
+    }).then(function() {
+      //redirect user
+      window.location = "/search";
+    });
+  });
+});

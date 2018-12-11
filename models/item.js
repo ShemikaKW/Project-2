@@ -6,20 +6,20 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: DataTypes.TEXT,
     price: DataTypes.DECIMAL(10, 2),
-    image: DataTypes.TEXT,
+    image: DataTypes.TEXT("long"),
     purchased: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }
   });
 
-  // Item.associate = function(models) {
-  //   // models.Item.belongsTo(models.User, {
-  //   //   foreignKey: {
-  //   //     allowNull: false
-  //   //   }
-  //   });
-  // };
+  Item.associate = function(models) {
+    models.Item.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Item;
 };

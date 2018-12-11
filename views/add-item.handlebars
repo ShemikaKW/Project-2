@@ -13,7 +13,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="item">Item Name</label>
-                    <input id='item-name' class="form-control" type="text" pattern="[A-Za-z0-9]+" placeholder="Item name" >
+                    <input id='item-name' class="form-control" type="text" pattern="[A-Za-z0-9\s]+" placeholder="Item name" >
                 </div>
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="descriptionOfItem">Item Description</label>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="itemPrice">Item Price</label>
-                    <input id='item-price' class="form-control" type="number" placeholder="Price" >
+                    <input id='item-price' class="form-control" type="number" step="0.01" min="0.01" placeholder="Price" >
                 </div>
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="itemImage">Item Image</label>

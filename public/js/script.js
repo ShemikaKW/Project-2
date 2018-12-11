@@ -52,7 +52,6 @@ $(document).ready(function() {
     imageToBase64(file)
       .then(function(data) {
         var itemInfo = {
-          uname: $("uname-read").val(),
           item: $("#item-name").val(),
           description: $("#item-description").val(),
           price: $("#item-price").val(),
@@ -61,6 +60,7 @@ $(document).ready(function() {
           CategoryId: $("#new-item-catagory").val(),
           userId: sessionStorage.userID
         };
+        console.log(itemInfo);
 
         displayImgInBody2(data);
         console.log("Before ajax");
@@ -72,6 +72,8 @@ $(document).ready(function() {
         })
           .then(function(data) {
             console.log("Response from the server:", data);
+            //redirect user
+            window.location = "/search";
           })
           .catch(function(error) {
             console.log(

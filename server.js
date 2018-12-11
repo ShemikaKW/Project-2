@@ -77,6 +77,10 @@ db.sequelize.sync(syncOptions).then(function() {
       {
         id: 4,
         name: "Automotive"
+      },
+      {
+        id: 5,
+        name: "Misc."
       }
     ]);
 

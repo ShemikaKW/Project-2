@@ -52,6 +52,10 @@ button {
   margin-bottom: 20px;
 }
 
+#main-header > h1 {
+  font-weight: 500;
+}
+
 footer,
 #nav-bar {
   display: flex;

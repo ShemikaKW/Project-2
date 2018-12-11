@@ -73,6 +73,7 @@ footer {
 
 #all-items>.item-card {
   margin: 10px;
+  border-radius: 15px;
 }
 
 .purchaseBtn {
@@ -82,4 +83,8 @@ footer {
 .item-card img {
   width: 150px;
   margin: 0 auto;
+}
+
+.card-img-top{
+  padding-top: 30px;
 }

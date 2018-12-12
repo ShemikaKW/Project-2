@@ -47,6 +47,7 @@ module.exports = function(app) {
           })
           .catch(function(err) {
             console.error(err);
+            res.end();
           });
       })
       .catch(function() {
@@ -99,7 +100,6 @@ module.exports = function(app) {
 
   //Create a new item
   app.post("/api/item", function(req, res) {
-    console.log("user id: " + req.body.userId);
     db.Item.create({
       name: req.body.item,
       description: req.body.description,

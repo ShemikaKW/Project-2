@@ -25,17 +25,17 @@ app.set("view engine", "handlebars");
 require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
-var syncOptions = { force: true };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
-// clearing the `testdb`
+// clearing the database
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
-  //if sync drops tables, seed database
+  //if sync drops tables, seed new tables
   if (syncOptions.force) {
     db.sequelize.models.User.bulkCreate([
       {

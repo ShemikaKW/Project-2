@@ -14,9 +14,29 @@ module.exports = function(app) {
       },
       order: ["name"]
     })
-      .then(function(dbItems) {
+      .then(function(data) {
+        //empty array for items
+        var items = [];
+
+        for (var i = 0; i < data.length; i++) {
+          var item = {
+            id: data[i].id,
+            name: data[i].name,
+            description: data[i].description,
+            price: new Intl.NumberFormat("en-EN", {
+              style: "currency",
+              currency: "USD"
+            }).format(data[i].price), //formats as currency
+            image: data[i].image
+          };
+
+          //push item into array
+          items.push(item);
+        }
+
+        //render items.handlebars
         res.render("items", {
-          items: dbItems
+          items: items
         });
       })
       .catch(function(err) {
